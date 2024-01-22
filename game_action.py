@@ -49,20 +49,21 @@ print("1 - Human, 2 - Robot, 3 - Zhizha")
 print("'-1' - Close")
 user_input = str(input())
 
-flag = True
-while flag:
-    if user_input == "1" or user_input == "2" or user_input == "3":
+if user_input == "1" or user_input == "2" or user_input == "3":
         player = gf.Player(gf.game_classes[user_input])
+else:
+    if user_input == '-1':
+        exit(1)
     else:
-        if user_input == '-1':
-            exit(1)
-        else:
-            print("Please enter a number!")
+        print("Please enter a number!")
+
+while True:
     
-    zombie1 = gf.Enemy("Zombie", 10, 500, 0.7)
+    
+    zombie1 = gf.Enemy("Zombie", 10, 150, 0.7)
     # player.pick_up(gf.game_weapons["Pistol"])
     # player.equip(gf.game_weapons["Knife"])
-    # print(player.equipment["weapon"].name)
+    print(player.equipment["weapon"].name)
 
     print(f"The {player.player_class} was walking down the road and met {zombie1.name}, it time to fight...")
     player.current_health = fight(player, zombie1)
